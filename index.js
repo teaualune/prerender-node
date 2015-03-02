@@ -158,6 +158,7 @@ prerender.getPrerenderedPageResponse = function(req, callback) {
     'User-Agent': req.headers['user-agent'],
     'Accept-Encoding': 'gzip'
   };
+  if (this.authorization) options.headers.authorization = this.authorization;
   if(this.prerenderToken || process.env.PRERENDER_TOKEN) {
     options.headers['X-Prerender-Token'] = this.prerenderToken || process.env.PRERENDER_TOKEN;
   }
